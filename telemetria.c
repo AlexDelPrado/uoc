@@ -1,26 +1,54 @@
 #include <stdio.h>
 
+typedef enum {false, true} bool;
+
 int main(){
     
     //Declaramos las variables
-    int t, n;
-    float i, suma_i, media;
+    int n;
+    int t, t_max, t_min;
+    float i, i_suma, i_next, i_min, i_max;
+    float media;
+    bool inco;
 
     scanf("%d", &t); // iniciamos lectura de segundos
     scanf("%f", &i); // iniciamos lectura de metros
-
+    
+    // Inicializamos las varibles
     n = 1; // iniciamos en uno el indice
-    suma_i = i; // le damos a suma_i el primer valor indicado en el scanf
+    t_max = t;
+    t_min = t;
+    i_suma = i; 
+    i_next = i;
+    i_min = i;
+    i_max = i;
+    inco = false;
 
     // iniciamos bucle
-    while (t != -1){ // -1 es la marca que indica final de secuencia
+    while (t != -1) { // -1 es la marca que indica final de secuencia
         scanf("%d", &t); // volvemos a leer los segundos
         if ( t != -1){ // si t no es igual a -1 leemos los metros
             scanf("%f", &i);
-            suma_i = suma_i + i;
-            n = n + 1; 
+            if (i > i_max){
+                i_max = i;
+                t_max = t;
+            }
+            if (i < i_min){
+                i_min = i;
+                t_min = t;
+            }
+            i_suma+=i;
+            ++n;
+            if ((i_next / i) < 0.80 || (i_next / i) > 1.25){
+                inco = true;
+            } 
+            i_next = i;
         } 
     }
-    media = suma_i / n;
-    printf("Fin secuencia. La media es %f", media);
+    if (inco){
+        printf("%d %f %d %f", t_max, i_max, t_min, i_min);
+    } else {
+        media = i_suma / n;
+        printf("%f", media);
+    }
 }
