@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 //Definicion de tipo
 typedef enum {false, true} bool;
 
@@ -8,7 +7,6 @@ typedef enum {false, true} bool;
 void buscapareja1 (int n, int *a, int *b);
 void buscapareja2 (int n, int a, int *b);
 bool pitagoricos (int h, int c1, int c2);
-
 
 int main(){
 
