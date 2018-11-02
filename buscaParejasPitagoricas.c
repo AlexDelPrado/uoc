@@ -15,7 +15,7 @@ int main(void){
 
     scanf("%d", &hipo);
     while (hipo != 0){
-        buscapareja1(hipo,cmenor,cmayor);
+        buscapareja1(hipo,&cmenor,&cmayor);
         if (pitagoricos(hipo,cmenor,cmayor)){
             printf("%d", hipo);
             printf("%d", cmayor);
@@ -23,30 +23,29 @@ int main(void){
         }
         scanf("%d", &hipo);
     }
-    //return;
+    return 0;
 }
 void buscapareja1 (int n, int *a, int *b){
     bool encontrado;
-    a=1;
-    b=1;
+    *a=1;
+    *b=1;
     encontrado = false;
-    while (a<n && !encontrado){
-        buscapareja2(n,a,b);
+    while (*a<n && !encontrado){
+        buscapareja2(n,a,&b);
         encontrado=pitagoricos(n,a,b);
         if (!encontrado){
-            a=a+1;
+            *a=*a+1;
         }
     }
 }
 void buscapareja2 (int n, int a, int *b){
     bool encontrado;
-    b=1;
+    *b=1;
     encontrado = false;
-    while (b<n && !encontrado){
-        buscapareja2(n,a,b);
+    while (*b<n && !encontrado){
         encontrado=pitagoricos(n,a,b);
         if (!encontrado){
-            b=b+1;
+            *b=*b+1;
         }
     }
 }
