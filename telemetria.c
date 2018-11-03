@@ -1,9 +1,12 @@
+/* Ejercicio AA2/a de Fundamentos de Programacion
+por Alex Del Prado - DAM abril 18 */
+
 #include <stdio.h>
 
 typedef enum {false, true} bool;
 
 int main(){
-    
+
     //Declaramos las variables
     int n;
     int t, t_max, t_min;
@@ -13,12 +16,12 @@ int main(){
 
     scanf("%d", &t); // iniciamos lectura de segundos
     scanf("%f", &i); // iniciamos lectura de metros
-    
+
     // Inicializamos las varibles
     n = 1; // iniciamos en uno el indice
     t_max = t;
     t_min = t;
-    i_suma = i; 
+    i_suma = i;
     i_next = i;
     i_min = i;
     i_max = i;
@@ -41,14 +44,14 @@ int main(){
             ++n;
             if ((i_next / i) < 0.80 || (i_next / i) > 1.25){
                 inco = true;
-            } 
+            }
             i_next = i;
-        } 
+        }
     }
     if (inco){
-        printf("%d %f %d %f", t_max, i_max, t_min, i_min);
+        printf("%d %.1f %d %.1f", t_max, i_max, t_min, i_min);
     } else {
         media = i_suma / n;
-        printf("%f", media);
+        printf("%.5f", media);
     }
 }
