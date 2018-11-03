@@ -1,4 +1,8 @@
+/* Ejercicio AA2/b de Fundamentos de Programacion
+por Alex Del Prado - DAM abril 18 */
+
 #include <stdio.h>
+
 
 //Definicion de tipo
 typedef enum {false, true} bool;
@@ -8,12 +12,15 @@ void buscapareja1 (int n, int *a, int *b);
 void buscapareja2 (int n, int a, int *b);
 bool pitagoricos (int h, int c1, int c2);
 
+
 int main(){
 
     int hipo, cmenor, cmayor;
 
-    scanf("%d", &hipo);
-    while (hipo != 0){
+    scanf("%d", &hipo); // Escaneamos entero
+
+    //inicamos bucle
+    while (hipo != 0){ // La marca es 0
         buscapareja1(hipo,&cmenor,&cmayor);
         if (pitagoricos(hipo,cmenor,cmayor)){
             printf("%d ", hipo);
@@ -33,7 +40,7 @@ void buscapareja1 (int n, int *a, int *b){
         buscapareja2(n,*a,b);
         encontrado=pitagoricos(n,*a,*b);
         if (!encontrado){
-            *a=*a+1;
+            ++*a;
         }
     }
 }
@@ -44,7 +51,7 @@ void buscapareja2 (int n, int a, int *b){
     while (*b<n && !encontrado){
         encontrado=pitagoricos(n,a,*b);
         if (!encontrado){
-            *b=*b+1;
+            ++*b;
         }
     }
 }
