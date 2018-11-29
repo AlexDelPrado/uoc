@@ -12,7 +12,7 @@ typedef struct{
 }tFrecUnaVocal;
 
 typedef struct{
-    tFrecUnaVocal frecuencias[NUMVOCALES+1]; /*Tengo que mirar esto. Por que con 6 si y 5 no*/
+    tFrecUnaVocal frecuencias[NUMVOCALES]; /*Tengo que mirar esto. Por que con 6 si y 5 no*/
     int nVocales;
 }tFrecVocales;
 
