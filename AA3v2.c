@@ -147,7 +147,7 @@ void procesarCaracter(char c, tFrecVocales *frecVocales){
 
     if (esVocal(c)){
         encontrado = false;
-        i = 1;
+        i = 0;
         while ((i <= frecVocales->nVocales) && !encontrado){
             encontrado = c == frecVocales->frecuencias[i].vocal;
             if (!encontrado){
